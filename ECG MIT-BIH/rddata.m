@@ -18,6 +18,10 @@
 %      algorithm is based on a program written by
 %      Klaus Rheinberger (University of Innsbruck)
 %      (email: klaus.rheinberger@uibk.ac.at)
+%      
+%      update on Oct. 11, 2013 by
+%      Diego Zeng (University of Macau) 
+%      (email: db02875@umac.mo)
 %
 % -------------------------------------------------------------------------
 clc; clear all;
@@ -110,7 +114,7 @@ while i<=saa
     elseif annoth==61
         % nothing to do!
     elseif annoth==62
-        % nothing to do!
+ in       % nothing to do!
     elseif annoth==63
         hilfe=bitshift(bitand(A(i,2),3),8)+A(i,1);
         hilfe=hilfe+mod(hilfe,2);
@@ -143,6 +147,9 @@ xlim([TIME(1), TIME(end)]);
 xlabel('Time / s'); ylabel('Voltage / mV');
 string=['ECG signal ',DATAFILE];
 title(string);
+%Separate two channels' ECG signal.
+M_1=M(:,1);
+M_2=M(:,2);
 fprintf(1,'\\n$> DISPLAYING DATA FINISHED \n');
 
 % -------------------------------------------------------------------------
